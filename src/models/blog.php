@@ -6,6 +6,6 @@ class Blog
 {
     public function index($params) : array
     {
-        return array('str' => 'My name is jdkfx.');
+        return array('title' => 'My first posts!', 'messages' => 'My name is jdkfx.');
     }
 }

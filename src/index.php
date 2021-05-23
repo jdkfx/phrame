@@ -26,6 +26,10 @@ if (file_exists('./models/' . $contents . '.php')) {
     
     if ($_SERVER['REQUEST_METHOD'] == "GET") {
         $response = $class->index($contents);
+
+        // var_dump($response);
+        // exit;
+
         if (!is_null($response)) {
             if(is_array($response)){
                extract($response);
