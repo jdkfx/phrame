@@ -4,7 +4,7 @@ namespace models;
 
 class Blog
 {
-    public function index($params) : array
+    public function index() : array
     {
         return array('title' => 'My first posts!', 'messages' => 'My name is jdkfx.');
     }

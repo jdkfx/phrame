@@ -5,7 +5,7 @@
   </head>
   <body>
     <h1>Blog</h1>
-    <h3><?= $title; ?></h3>
-    <p><?= $messages; ?></p>
+    <h3><?= $response["title"] ?></h3>
+    <p><?= $response["messages"] ?></p>
   </body>
 </html>
