@@ -22,4 +22,9 @@ class Blog_controller
 
         return $response;
     }
+
+    public function create()
+    {
+        return "新しい記事を作成するページです。";
+    }
 }

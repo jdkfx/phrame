@@ -5,7 +5,7 @@
   </head>
   <body>
     <h1>Blog</h1>
-    <h3><?= $response["title"] ?></h3>
-    <p><?= $response["messages"] ?></p>
+    <h3><?= htmlspecialchars($response["title"], ENT_QUOTES, 'UTF-8'); ?></h3>
+    <p><?= htmlspecialchars($response["messages"], ENT_QUOTES, 'UTF-8'); ?></p>
   </body>
 </html>
