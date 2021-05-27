@@ -25,6 +25,16 @@ class Blog_controller
 
     public function create()
     {
-        return "新しい記事を作成するページです。";
+        include('./views/create.php');
+    }
+
+    public function post($request)
+    {
+        $blog = new blog();
+
+        $blog->title = $request['title'];
+        $blog->messages = $request['messages'];
+
+        return include('./views/confirm.php');
     }
 }
