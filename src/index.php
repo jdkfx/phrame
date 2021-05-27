@@ -1,15 +1,11 @@
 <?php
 
-$fullpath;
-
-if (empty($_SERVER['PATH_INFO'])) {
+if ($_SERVER['REQUEST_URI'] == '/') {
     include('./views/index.php');
     exit;
 } else {
-    $fullpath = explode('/', $_SERVER['PATH_INFO']);
+    $fullpath = explode('/', $_SERVER['REQUEST_URI']);
 }
-
-$contents;
 
 foreach ($fullpath as $path) {
     if ($path !== "") {
@@ -17,8 +13,6 @@ foreach ($fullpath as $path) {
         break;
     }
 }
-
-$response;
 
 if (file_exists('./controllers/' . $fullpath[1] . '_controller.php')) {
     include('./controllers/' . $fullpath[1] . '_controller.php');
