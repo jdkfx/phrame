@@ -1,6 +1,8 @@
 RewriteEngine On
 
+# ディレクトリがないかどうか確認
 RewriteCond %{REQUEST_FILENAME} !-d
+# ファイルが無いかどうか確認
 RewriteCond %{REQUEST_FILENAME} !-f
 
 RewriteRule ^(.+)$ index.php [L]

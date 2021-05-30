@@ -2,7 +2,7 @@
 
 namespace controllers;
 
-include('./models/blog.php');
+include __DIR__ . '/../models/blog.php';
 use models\blog as blog;
 
 class Blog_controller
@@ -25,7 +25,7 @@ class Blog_controller
 
     public function create()
     {
-        include('./views/create.php');
+        include __DIR__ . '/../views/create.php';
     }
 
     public function post($request)
@@ -35,6 +35,6 @@ class Blog_controller
         $blog->title = $request['title'];
         $blog->messages = $request['messages'];
 
-        return include('./views/confirm.php');
+        return include __DIR__ . '/../views/confirm.php';
     }
 }
