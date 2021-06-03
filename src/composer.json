@@ -1,0 +1,15 @@
+{
+    "name": "root/www",
+    "description": "MVC framework",
+    "type": "project",
+    "authors": [
+        {
+            "name": "jdkfx",
+            "email": "amatuerranch@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {"App\\":"app"}
+    },
+    "require": {}
+}

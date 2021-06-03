@@ -1,17 +1,16 @@
 <?php
 
-namespace controllers;
+namespace App\Controllers;
 
-include __DIR__ . '/../models/blog.php';
-use models\blog as blog;
+use App\Models\Blog;
 
-class Blog_controller
+class BlogController
 {
     public function __construct(){}
 
     public function index()
     {
-        $blog = new blog();
+        $blog = new Blog();
         $response = $blog->index();
 
         if (!is_null($response)) {
@@ -30,7 +29,7 @@ class Blog_controller
 
     public function post($request)
     {
-        $blog = new blog();
+        $blog = new Blog();
 
         $blog->title = $request['title'];
         $blog->messages = $request['messages'];

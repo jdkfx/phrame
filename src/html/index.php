@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . "/../vendor/autoload.php";
+
 if ($_SERVER['REQUEST_URI'] == '/') {
     include __DIR__ . '/../app/views/index.php';
     exit;
@@ -14,10 +16,12 @@ foreach ($fullpath as $path) {
     }
 }
 
+// foreach 必要ではない
+
+// クラスが存在するかで読み込みをしてあげる
 try {
-    if (file_exists( __DIR__ . '/../app/controllers/' . $fullpath[1] . '_controller.php')) {
-        include __DIR__ . '/../app/controllers/' . $fullpath[1] . '_controller.php';
-        $controllerName = "controllers\\" . $fullpath[1] . "_controller";
+    $controllerName = "App\\Controllers\\" . ucfirst($fullpath[1]) . "Controller";
+    if (class_exists($controllerName)) {
         $controller = new $controllerName();
     } else {
         throw new \Exception("error!");
