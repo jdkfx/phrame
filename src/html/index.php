@@ -39,8 +39,11 @@ try {
         if (!file_exists( __DIR__ . "/../app/views/{$contents}.php")) {
             throw new \Exception("error!"); 
         }
-        $response = $controller->index();
-        include __DIR__ . "/../app/views/{$contents}.php";
+
+        return $controller->index();
+
+        // $response = $controller->index();
+        // include __DIR__ . "/../app/views/{$contents}.php";
     } else {
         throw new \Exception("error!"); 
     }
