@@ -2,9 +2,11 @@
 
 require_once __DIR__ . "/../vendor/autoload.php";
 
+use App\Templates\View;
+
 if ($_SERVER['REQUEST_URI'] == '/') {
-    include __DIR__ . '/../app/views/index.php';
-    exit;
+    $view = new View();
+    return $view->pages('index'); 
 } else {
     $fullpath = explode('/', $_SERVER['REQUEST_URI']);
 }
@@ -41,13 +43,11 @@ try {
         }
 
         return $controller->index();
-
-        // $response = $controller->index();
-        // include __DIR__ . "/../app/views/{$contents}.php";
     } else {
         throw new \Exception("error!"); 
     }
 } catch (\Exception $e) {
     error_log($e->getFile() . $e->getLine() . $e->getMessage());
-    include __DIR__ . '/../app/views/error.php';
+    $view = new View();
+    return $view->pages('error');
 }
