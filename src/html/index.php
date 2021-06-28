@@ -3,20 +3,38 @@
 require_once __DIR__ . "/../vendor/autoload.php";
 
 use App\Templates\View;
+use App\Routers\Router;
 
-if ($_SERVER['REQUEST_URI'] == '/') {
-    $view = new View();
-    return $view->pages('index'); 
-} else {
-    $fullpath = explode('/', $_SERVER['REQUEST_URI']);
-}
+$pattern = [
+    '/' => [
+        'method'        => 'GET',
+        'controller'    => 'HomeController',
+        'action'        => 'index',
+    ],
+    '/blog' => [
+        'method'        => 'GET',
+        'controller'    => 'BlogController',
+        'action'        => 'index',
+    ],
+];
 
-foreach ($fullpath as $path) {
-    if ($path !== "") {
-        $contents = $path;
-        break;
-    }
-}
+$router = new Router($pattern);
+$router->response($_SERVER['REQUEST_URI']);
+
+
+// if ($_SERVER['REQUEST_URI'] == '/') {
+//     $view = new View();
+//     return $view->pages('index'); 
+// } else {
+//     $fullpath = explode('/', $_SERVER['REQUEST_URI']);
+// }
+
+// foreach ($fullpath as $path) {
+//     if ($path !== "") {
+//         $contents = $path;
+//         break;
+//     }
+// }
 
 // foreach 必要ではない
 
