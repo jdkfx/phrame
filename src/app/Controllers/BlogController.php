@@ -41,10 +41,6 @@ class BlogController
         $blog->title = $request['title'];
         $blog->messages = $request['messages'];
 
-        // 配列でしかデータが渡せない状態になっているのでそちらを修正してからにする
-        var_dump(is_array($blog));
-        exit;
-
         $view->pages('confirm', $blog);
     }
 }

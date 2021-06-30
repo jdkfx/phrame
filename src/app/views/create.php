@@ -5,7 +5,7 @@
   </head>
   <body>
     <h1>New post</h1>
-    <form action="" method="post">
+    <form action="./create/confirm" method="post">
         <ul>
             <li>
                 <label for="title">Title:</label>
@@ -16,7 +16,7 @@
                 <textarea name="messages" id="messages" cols="30" rows="10"></textarea>
             </li>
             <li>
-                <button type="submit">Submit</button>
+                <button type="submit">Confirm</button>
             </li>
         </ul>
     </form>

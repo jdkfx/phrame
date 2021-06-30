@@ -14,14 +14,13 @@ class Router
     public function response($request)
     {
         try {
+            $controllerName = "App\\Controllers\\" . $this->routes[$request]['controller'];
+            $controller = new $controllerName();
+            $controllerAction = $this->routes[$request]['action'];
             if ($this->routes[$request]['method'] === 'GET') {
-                $controllerName = "App\\Controllers\\" . $this->routes[$request]['controller'];
-                $controller = new $controllerName();
-    
-                $controllerAction = $this->routes[$request]['action'];
                 $controller->$controllerAction();
             } else if ($this->routes[$request]['method'] === 'POST') {
-                // POST
+                $controller->$controllerAction($_POST);
             } else {
                 throw new \Exception('error!');
             }
