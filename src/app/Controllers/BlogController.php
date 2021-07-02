@@ -16,13 +16,7 @@ class BlogController
 
         $response = $blog->index();
 
-        // 配列ではなくインスタンス->プロパティで扱えるようにする
-        // その前にDBにデータを保存させる動作をつけるほうがいいかもしれない
-        if (!is_null($response)) {
-            if(is_array($response)){
-                extract($response);
-            }
-        }
+        var_dump($response[0]);
 
         $view->pages('blog', $response);
     }
