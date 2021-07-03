@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Model;
+use \PDO;
 
 class Blog extends Model
 {
@@ -20,7 +21,7 @@ class Blog extends Model
 
         try {
             $stmt = $this->pdo->query($query);
-            $response = $stmt->fetchAll();
+            $response = $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch (Exception $e) {
             error_log($e->getMessage());
             exit();

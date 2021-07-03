@@ -16,8 +16,6 @@ class BlogController
 
         $response = $blog->index();
 
-        var_dump($response[0]);
-
         $view->pages('blog', $response);
     }
 

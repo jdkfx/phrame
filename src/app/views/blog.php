@@ -6,7 +6,12 @@
   <body>
     <h1>Blog</h1>
     <a href="./blog/create">New</a>
-    <h3><?= htmlspecialchars($response["title"], ENT_QUOTES, 'UTF-8'); ?></h3>
-    <p><?= htmlspecialchars($response["messages"], ENT_QUOTES, 'UTF-8'); ?></p>
+    
+    <?php foreach ($response as $key => $val) : ?>
+
+    <h3><?= htmlspecialchars($val["title"], ENT_QUOTES, 'UTF-8'); ?></h3>
+    <p><?= htmlspecialchars($val["messages"], ENT_QUOTES, 'UTF-8'); ?></p>
+
+    <?php endforeach; ?>
   </body>
 </html>
