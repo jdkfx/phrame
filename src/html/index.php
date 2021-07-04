@@ -26,6 +26,11 @@ $pattern = [
         'controller'    => 'BlogController',
         'action'        => 'post',
     ],
+    '/blog/store' => [
+        'method'        => 'POST',
+        'controller'    => 'BlogController',
+        'action'        => 'store',
+    ],
 ];
 
 $router = new Router($pattern);

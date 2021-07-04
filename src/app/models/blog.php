@@ -29,4 +29,17 @@ class Blog extends Model
 
         return $response;
     }
+
+    public function store($request)
+    {
+        $query = "INSERT INTO blog.posts (title, messages) VALUES (?, ?)";
+
+        try {
+            $stmt = $this->pdo->prepare($query);
+            $response = $stmt->execute(array($request["title"], $request["messages"]));
+        } catch (Exception $e) {
+            error_log($e->getMessage());
+            exit();
+        }
+    }
 }

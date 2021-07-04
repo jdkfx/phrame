@@ -35,4 +35,12 @@ class BlogController
 
         $view->pages('confirm', $blog);
     }
+
+    public function store($request)
+    {
+        $blog = new Blog();
+        $view = new View();
+
+        $blog->store($request);
+    }
 }
