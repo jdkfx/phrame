@@ -2,7 +2,6 @@
 
 require_once __DIR__ . "/../vendor/autoload.php";
 
-use App\Templates\View;
 use App\Routers\Router;
 
 $pattern = [

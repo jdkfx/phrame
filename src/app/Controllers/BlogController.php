@@ -42,5 +42,7 @@ class BlogController
         $view = new View();
 
         $blog->store($request);
+
+        $view->pages('store');
     }
 }
