@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Templates\View;
+use App\Controllers\Controller;
 
 class HomeController
 {

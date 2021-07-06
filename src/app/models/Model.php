@@ -15,8 +15,8 @@ class model
 
         $query = "CREATE TABLE IF NOT EXISTS blog.posts (
             id INT(11) NOT NULL auto_increment PRIMARY KEY,
-            title VARCHAR(20),
-            messages VARCHAR(50)
+            title VARCHAR(255),
+            messages VARCHAR(255)
             ) DEFAULT CHARSET=utf8";
 
         try {

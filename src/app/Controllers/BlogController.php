@@ -4,8 +4,9 @@ namespace App\Controllers;
 
 use App\Models\Blog;
 use App\Templates\View;
+use App\Controllers\Controller;
 
-class BlogController
+class BlogController extends Controller
 {
     public function __construct(){}
 
@@ -29,6 +30,14 @@ class BlogController
     {
         $blog = new Blog();
         $view = new View();
+
+        if (empty($request['title']) || empty($request['messages'])) {
+            parent::redirect('blog/create');
+        }
+
+        if (mb_strlen($request['title']) > 20 || mb_strlen($request['messages']) > 50) {
+            parent::redirect('blog/create');
+        }
 
         $blog->title = $request['title'];
         $blog->messages = $request['messages'];
