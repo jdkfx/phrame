@@ -14,8 +14,7 @@ class Router
     public function response($request)
     {
         try {
-            $controllerName = "App\\Controllers\\" . $this->routes[$request]['controller'];
-            $controller = new $controllerName();
+            $controller = new $this->routes[$request]['controller'];
             $controllerAction = $this->routes[$request]['action'];
             if ($this->routes[$request]['method'] === 'GET') {
                 $controller->$controllerAction();

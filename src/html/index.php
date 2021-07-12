@@ -3,31 +3,33 @@
 require_once __DIR__ . "/../vendor/autoload.php";
 
 use App\Routers\Router;
+use App\Controllers\HomeController;
+use App\Controllers\BlogController;
 
 $pattern = [
     '/' => [
         'method'        => 'GET',
-        'controller'    => 'HomeController',
+        'controller'    => HomeController::class,
         'action'        => 'index',
     ],
     '/blog' => [
         'method'        => 'GET',
-        'controller'    => 'BlogController',
+        'controller'    => BlogController::class,
         'action'        => 'index',
     ],
     '/blog/create' => [
         'method'        => 'GET',
-        'controller'    => 'BlogController',
+        'controller'    => BlogController::class,
         'action'        => 'create',
     ],
     '/blog/create/confirm' => [
         'method'        => 'POST',
-        'controller'    => 'BlogController',
+        'controller'    => BlogController::class,
         'action'        => 'post',
     ],
     '/blog/store' => [
         'method'        => 'POST',
-        'controller'    => 'BlogController',
+        'controller'    => BlogController::class,
         'action'        => 'store',
     ],
 ];
