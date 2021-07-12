@@ -23,8 +23,7 @@ class Blog extends Model
             $stmt = $this->pdo->query($query);
             $response = $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch (Exception $e) {
-            error_log($e->getMessage());
-            exit();
+            return [];
         }
 
         return $response;
@@ -38,8 +37,7 @@ class Blog extends Model
             $stmt = $this->pdo->prepare($query);
             $response = $stmt->execute(array($request["title"], $request["messages"]));
         } catch (Exception $e) {
-            error_log($e->getMessage());
-            exit();
+            return;
         }
     }
 }

@@ -25,8 +25,7 @@ class model
             
             $this->pdo->query($query);
         } catch (PDOException $e) {
-            error_log($e->getMessage());
-            exit();
+            return;
         }
     }
 }
