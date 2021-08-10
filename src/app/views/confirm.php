@@ -10,6 +10,7 @@
       <p><?= htmlspecialchars($response->messages, ENT_QUOTES, 'UTF-8'); ?></p>
       <input type="hidden" name="title" value=<?= $response->title; ?>>
       <input type="hidden" name="messages" value=<?= $response->messages; ?>>
+      <input type="hidden" name="token" value="<?= $csrf->token() ?>">
       <p><input name="submit" type="submit" value="Post"></p>
     </form>
   </body>

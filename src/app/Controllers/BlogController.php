@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\Blog;
 use App\Templates\View;
 use App\Controllers\Controller;
+use App\Middlewares\CsrfToken;
 
 class BlogController extends Controller
 {
@@ -49,6 +50,9 @@ class BlogController extends Controller
     {
         $blog = new Blog();
         $view = new View();
+
+        var_dump($request['token']);
+        exit;
 
         $blog->store($request);
 
