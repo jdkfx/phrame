@@ -15,13 +15,14 @@ class CsrfToken
         }
     }
 
-    // todo: BlogControllerでvalidateできるようにする
-    public function validate($token) : string
+    public function validate($token) : bool
     {
         $validateToken = self::token() === $token;
         try {
-            if ($validateToken) {
-                return $validateToken;
+            if (!$validateToken) {
+                return false;
+            } else {
+                return true;
             }
         } catch (\Exception $e) {
             error_log($e->getFile() . $e->getLine() . $e->getMessage());

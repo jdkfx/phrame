@@ -51,8 +51,7 @@ class BlogController extends Controller
         $blog = new Blog();
         $view = new View();
 
-        var_dump($request['token']);
-        exit;
+        parent::tokenValidate($request['token']);
 
         $blog->store($request);
 
