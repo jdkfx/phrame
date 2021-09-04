@@ -1,6 +1,14 @@
 version: '3.7'
 
 services:
+  composer:
+    image: composer
+    command: "composer install"
+    volumes:
+      - ./src:/var/www/
+    links:
+      - php-apache
+
   mysql:
     image: mysql:5.7
     volumes:
@@ -22,7 +30,7 @@ services:
   php-apache:
     build: ./php
     volumes:
-      - ./src:/var/www
+      - ./src:/var/www/
     restart: always
     ports:
       - "80:80"
