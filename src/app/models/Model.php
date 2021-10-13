@@ -4,7 +4,7 @@ namespace App\Models;
 
 use \PDO;
 
-class model
+class Model
 {
     public $pdo;
 
