@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use Psr\Http\Message\UriInterface;
 use App\Middlewares\CsrfToken;
 
 class Controller
@@ -21,9 +22,9 @@ class Controller
         }
     }
 
-    public function redirect($path)
+    public function redirect(UriInterface $uri, $path)
     {
-        header('Location: http://' . $_SERVER['HTTP_HOST'] . '/' . $path);
+        header('Location: http://' . $uri->getHost() . $path);
         exit;
     }
 }
