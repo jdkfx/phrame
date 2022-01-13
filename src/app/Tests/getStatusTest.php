@@ -22,4 +22,13 @@ class getStatusTest extends TestCase
 
         $this->assertEquals(200, $response->getStatusCode());
     }
+
+    public function testGetBlog()
+    {
+        $client = new Client();
+
+        $response = $client->get('http://localhost/blog/');
+
+        $this->assertEquals(200, $response->getStatusCode());
+    }
 }

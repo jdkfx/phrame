@@ -22,9 +22,9 @@ class Controller
         }
     }
 
-    public function redirect(UriInterface $uri, $path)
+    public function redirect(UriInterface $uri)
     {
-        header('Location: http://' . $uri->getHost() . $path);
+        header($uri->getScheme() . $uri->getHost() . $uri->getPath());
         exit;
     }
 }
