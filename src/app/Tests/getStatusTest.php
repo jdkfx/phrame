@@ -27,8 +27,17 @@ class getStatusTest extends TestCase
     {
         $client = new Client();
 
-        $response = $client->get('http://localhost/blog/');
+        $response = $client->get('http://localhost/blog');
 
         $this->assertEquals(200, $response->getStatusCode());
+    }
+
+    public function testGet404()
+    {
+        $client = new Client();
+
+        $response = $client->get('http://localhost/hoge', ['http_errors' => false]);
+
+        $this->assertEquals(404, $response->getStatusCode());
     }
 }
