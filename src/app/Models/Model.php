@@ -9,7 +9,7 @@ class Model
     public $pdo;
 
     public function __construct() {
-        $dsn        = 'mysql:dbname=blog;host=phrame_mysql_1';
+        $dsn        = 'mysql:dbname=blog;host=phrame-mysql-1';
         $user       = 'root';
         $password   = 'password';
 
