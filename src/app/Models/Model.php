@@ -9,9 +9,9 @@ class Model
     public $pdo;
 
     public function __construct() {
-        $dsn        = 'mysql:dbname=blog;host=phrame-mysql-1';
-        $user       = 'root';
-        $password   = 'password';
+        $dsn        = 'mysql:dbname=' . $_ENV['DATABASE_NAME'] . ';host=' . $_ENV['DATABASE_HOST'];
+        $user       = $_ENV['USERNAME'];
+        $password   = $_ENV['ROOT_PASSWORD'];
 
         $query = "CREATE TABLE IF NOT EXISTS blog.posts (
             id INT(11) NOT NULL auto_increment PRIMARY KEY,
