@@ -17,7 +17,10 @@ services:
       - ./src:/var/www/
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: 'password'
+      MYSQL_HOST: ${DATABASE_HOST}
+      MYSQL_DATABASE: ${DATABASE_NAME}
+      MYSQL_USER: ${USERNAME}
+      MYSQL_ROOT_PASSWORD: ${ROOT_PASSWORD}
 
   phpmyadmin:
     depends_on:
@@ -31,6 +34,8 @@ services:
 
   php-apache:
     build: ./php
+    env_file:
+      - .env
     volumes:
       - ./src:/var/www/
     restart: always
