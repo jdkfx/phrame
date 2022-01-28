@@ -2,6 +2,8 @@
 
 namespace App\Routers;
 
+use App\Templates\View;
+
 class Router
 {
     private $routes;
@@ -27,7 +29,9 @@ class Router
                 }
 
             } else {
+                $view = new View();
                 header("HTTP/1.1 404 Not Found");
+                $view->pages('error');
                 exit;
             }
         } catch (\Exception $e) {
