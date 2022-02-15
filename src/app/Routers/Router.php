@@ -3,6 +3,7 @@
 namespace App\Routers;
 
 use App\Templates\View;
+use App\Logs\Log;
 
 class Router
 {
@@ -24,18 +25,17 @@ class Router
                     $controller->$controllerAction();
                 } else if ($this->routes[$request]['method'] === 'POST') {
                     $controller->$controllerAction($_POST);
-                } else {
-                    throw new \Exception('error!');
                 }
-
             } else {
                 $view = new View();
                 header("HTTP/1.1 404 Not Found");
                 $view->pages('error');
-                exit;
+
+                throw new \Exception('error!');
             }
         } catch (\Exception $e) {
-            error_log($e->getFile() . $e->getLine() . $e->getMessage());
+            $logger = new Log();
+            $logger->writeLog('error', $e->getFile() . ' ' . $e->getLine() . ' ' . $e->getMessage());
         }
     }
 }
