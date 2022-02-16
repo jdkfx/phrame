@@ -7,14 +7,17 @@ use App\Middlewares\CsrfToken;
 
 class Controller
 {
-    public function __construct(){}
+    public $csrfToken;
+
+    public function __construct(CsrfToken $csrfToken)
+    {
+        $this->csrfToken = $csrfToken;
+    }
 
     public function tokenValidate($token)
     {
-        $csrfToken = new CsrfToken();
-
         try {
-            if ($csrfToken->validate($token) == false) {
+            if ($this->csrfToken->validate($token) == false) {
                 exit;
             }
         } catch (\Exception $e) {
