@@ -50,8 +50,9 @@ class BlogController extends Controller
     {
         $blog = new Blog();
         $view = new View();
+        $validate = new parent(new CsrfToken());
 
-        parent::tokenValidate($request['token']);
+        $validate->tokenValidate($request['token']);
 
         $blog->store($request);
 
