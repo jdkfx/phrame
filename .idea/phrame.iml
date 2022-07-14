@@ -7,6 +7,8 @@
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/deprecation-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/psr/log" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/monolog/monolog" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
