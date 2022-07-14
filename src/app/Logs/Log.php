@@ -9,7 +9,8 @@ class Log
 {
     public function __construct(){}
 
-    public function writeLog($name, $message) {
+    public function writeLog($name, $message): void
+    {
         $log = new Logger($name);
 
         $log->pushHandler(new StreamHandler(__DIR__ . '/../../log/' . $name . '.log', Logger::INFO));

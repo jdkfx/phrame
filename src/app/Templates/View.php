@@ -8,7 +8,7 @@ class View
 {
     public function __construct(){}
 
-    public function pages($filename, $dvalue = null)
+    public function pages($filename, $dvalue = null): void
     {
         $csrf = new CsrfToken();
         $response = $dvalue;

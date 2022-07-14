@@ -4,17 +4,18 @@ namespace App\Routers;
 
 use App\Templates\View;
 use App\Logs\Log;
+use Exception;
 
 class Router
 {
-    private $routes;
+    private array $routes;
 
     public function __construct(array $routes)
     {
         $this->routes = $routes;
     }
 
-    public function response($request)
+    public function response($request): void
     {
         try {
             if (isset($this->routes[$request])) {
@@ -31,9 +32,9 @@ class Router
                 header("HTTP/1.1 404 Not Found");
                 $view->pages('error');
 
-                throw new \Exception('error!');
+                throw new Exception('error!');
             }
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $logger = new Log();
             $logger->writeLog('error', $e->getFile() . ' ' . $e->getLine() . ' ' . $e->getMessage());
         }

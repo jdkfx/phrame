@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
-use \PDO;
+use PDO;
+use PDOException;
 
 class Model
 {
-    public $pdo;
+    public PDO $pdo;
 
     public function __construct() {
         $dsn        = 'mysql:dbname=' . $_ENV['DATABASE_NAME'] . ';host=' . $_ENV['DATABASE_HOST'];
@@ -24,7 +25,7 @@ class Model
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             
             $this->pdo->query($query);
-        } catch (PDOException $e) {
+        } catch (PDOException) {
             return;
         }
     }
