@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
     <title>Blog</title>
   </head>
   <body>
     <h1>Blog</h1>
+    <a href="./">トップへ</a>
     <a href="./blog/create">New</a>
     
     <?php foreach ($response as $key => $val) : ?>

@@ -4,7 +4,6 @@ namespace App\Controllers;
 
 use App\Models\Blog;
 use App\Templates\View;
-use App\Controllers\Controller;
 use App\Middlewares\CsrfToken;
 
 class BlogController extends Controller

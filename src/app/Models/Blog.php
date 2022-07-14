@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use App\Models\Model;
-use \PDO;
+use Exception;
+use PDO;
 
 class Blog extends Model
 {
@@ -35,7 +35,7 @@ class Blog extends Model
 
         try {
             $stmt = $this->pdo->prepare($query);
-            $response = $stmt->execute(array($request["title"], $request["messages"]));
+            $stmt->execute(array($request["title"], $request["messages"]));
         } catch (Exception $e) {
             return;
         }
