@@ -17,9 +17,22 @@ PHP 8.0.8 (cli)
 $ git clone
 ```
 
+### .env の複製
+```
+$ cp .env.sample .env
+```
+
 ### Dockerコンテナの立ち上げ
 ```
 $ docker-compose build
 $ docker-compose up -d
 $ docker ps
+```
+
+### コンテナ内で composer install
+```
+$ docker exec -it phrame_php-apache_1 /bin/bash
+
+/var/www/html# cd ../
+/var/www# composer install
 ```
