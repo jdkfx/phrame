@@ -1,17 +1,13 @@
-version: '3.7'
-
 services:
   mysql:
     build: ./sql
-    command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
     volumes:
       - db_data:/var/lib/mysql
-      - ./src:/var/www/
     restart: always
     environment:
-      MYSQL_HOST: ${DATABASE_HOST}
       MYSQL_DATABASE: ${DATABASE_NAME}
       MYSQL_USER: ${USERNAME}
+      MYSQL_PASSWORD: ${PASSWORD}
       MYSQL_ROOT_PASSWORD: ${ROOT_PASSWORD}
 
   phpmyadmin:
@@ -32,7 +28,7 @@ services:
       - ./src:/var/www/
     restart: always
     ports:
-      - "80:80"
+      - "8000:80"
     depends_on:
       - mysql
 
