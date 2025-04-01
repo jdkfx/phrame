@@ -5,10 +5,10 @@
 ## 環境について
 
 ### Docker
-Docker version 20.10.6
+Docker version 28.0.1
 
 ### PHP
-PHP 8.0.8 (cli)
+PHP 8.4.5 (cli)
 
 ## Getting Started
 
