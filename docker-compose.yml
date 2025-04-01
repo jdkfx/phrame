@@ -10,6 +10,8 @@ services:
       MYSQL_USER: ${USERNAME}
       MYSQL_PASSWORD: ${PASSWORD}
       MYSQL_ROOT_PASSWORD: ${ROOT_PASSWORD}
+    ports:
+      - "3306:3306"
 
   phpmyadmin:
     container_name: phpmyadmin
