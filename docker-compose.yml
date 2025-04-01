@@ -1,5 +1,6 @@
 services:
   mysql:
+    container_name: mysql
     build: ./sql
     volumes:
       - db_data:/var/lib/mysql
@@ -11,6 +12,7 @@ services:
       MYSQL_ROOT_PASSWORD: ${ROOT_PASSWORD}
 
   phpmyadmin:
+    container_name: phpmyadmin
     depends_on:
       - mysql
     image: phpmyadmin/phpmyadmin
@@ -21,6 +23,7 @@ services:
       - "8080:80"
 
   php-apache:
+    container_name: php-apache
     build: ./php
     env_file:
       - .env
