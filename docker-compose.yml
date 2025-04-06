@@ -31,6 +31,7 @@ services:
       - .env
     volumes:
       - ./src:/var/www/
+      - ./.env:/var/www/.env
     restart: always
     ports:
       - "8000:80"
