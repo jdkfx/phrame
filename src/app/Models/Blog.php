@@ -2,13 +2,11 @@
 
 namespace App\Models;
 
-use Exception;
-use PDO;
-
 class Blog extends Model
 {
-    public $title;
-    public $messages;
+    public string $title;
+
+    public string $messages;
 
     public function __construct()
     {
@@ -17,27 +15,14 @@ class Blog extends Model
 
     public function index() : array
     {
-        $query = "SELECT * FROM blog.posts";
-
-        try {
-            $stmt = $this->pdo->query($query);
-            $response = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        } catch (Exception $e) {
-            return [];
-        }
-
-        return $response;
+        return $this->findAll($this->table);
     }
 
-    public function store($request)
+    public function store($request): void
     {
-        $query = "INSERT INTO blog.posts (title, messages) VALUES (?, ?)";
-
-        try {
-            $stmt = $this->pdo->prepare($query);
-            $stmt->execute(array($request["title"], $request["messages"]));
-        } catch (Exception $e) {
-            return;
-        }
+        $this->insert($this->table, [
+            'title' => $request['title'],
+            'messages' => $request['messages']
+        ]);
     }
 }

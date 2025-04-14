@@ -8,9 +8,7 @@ use App\Middlewares\CsrfToken;
 
 class BlogController extends Controller
 {
-    public function __construct(){}
-
-    public function index()
+    public function index(): void
     {
         $blog = new Blog();
         $view = new View();
@@ -20,13 +18,13 @@ class BlogController extends Controller
         $view->pages('blog', $response);
     }
 
-    public function create()
+    public function create(): void
     {
         $view = new View();
         $view->pages('create');
     }
 
-    public function post($request)
+    public function post($request): void
     {
         $blog = new Blog();
         $view = new View();
@@ -45,7 +43,7 @@ class BlogController extends Controller
         $view->pages('confirm', $blog);
     }
 
-    public function store($request)
+    public function store($request): void
     {
         $blog = new Blog();
         $view = new View();
