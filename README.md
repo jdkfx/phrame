@@ -10,7 +10,7 @@ Docker version 28.0.1
 ### PHP
 PHP 8.4.5 (cli)
 
-## Getting Started
+## 環境構築
 
 ### リポジトリをクローン
 ```
@@ -22,17 +22,30 @@ $ git clone
 $ cp .env.sample .env
 ```
 
-### Dockerコンテナの立ち上げ
+`.env`に以下のような値を設定
+
 ```
-$ docker-compose build
-$ docker-compose up -d
-$ docker ps
+DATABASE_HOST=mysql
+DATABASE_NAME=phrame
+USERNAME=user
+PASSWORD=password
+ROOT_PASSWORD=password
 ```
 
-### コンテナ内で composer install
+### makeコマンドでコンテナの立ち上げ、停止
 ```
-$ docker exec -it phrame_php-apache_1 /bin/bash
+$ make build
+$ make up
+$ make down
+```
 
-/var/www/html# cd ../
-/var/www# composer install
+### Composerでライブラリをインストール
+```
+$ make composer
+```
+
+### データベースの初期化、削除
+```
+$ make migrate
+$ make rollback
 ```
