@@ -10,9 +10,9 @@ class Controller
 {
     public CsrfToken $csrfToken;
 
-    public function __construct(CsrfToken $csrfToken)
+    public function __construct(?CsrfToken $csrfToken = null)
     {
-        $this->csrfToken = $csrfToken;
+        $this->csrfToken = $csrfToken ?? new CsrfToken();
     }
 
     public function tokenValidate($token): void
