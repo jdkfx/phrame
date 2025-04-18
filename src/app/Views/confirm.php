@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confirm</title>
-  </head>
-  <body>
+</head>
+<body>
+<header>
     <h1>Confirm</h1>
+</header>
+<main>
     <form action="../store" method="post">
-      <h3><?= htmlspecialchars($response->title, ENT_QUOTES, 'UTF-8'); ?></h3>
-      <p><?= htmlspecialchars($response->messages, ENT_QUOTES, 'UTF-8'); ?></p>
-      <input type="hidden" name="title" value=<?= $response->title; ?>>
-      <input type="hidden" name="messages" value=<?= $response->messages; ?>>
-      <input type="hidden" name="token" value="<?= $csrf->token() ?>">
-      <p><input name="submit" type="submit" value="Post"></p>
+        <h3><?= htmlspecialchars($response->title, ENT_QUOTES, 'UTF-8'); ?></h3>
+        <p><?= htmlspecialchars($response->messages, ENT_QUOTES, 'UTF-8'); ?></p>
+        <input type="hidden" name="title" value="<?= htmlspecialchars($response->title, ENT_QUOTES, 'UTF-8'); ?>">
+        <input type="hidden" name="messages" value="<?= htmlspecialchars($response->messages, ENT_QUOTES, 'UTF-8'); ?>">
+        <input type="hidden" name="token" value="<?= htmlspecialchars($csrf->token(), ENT_QUOTES, 'UTF-8'); ?>">
+        <p><input name="submit" type="submit" value="Post"></p>
     </form>
-  </body>
+</main>
+</body>
 </html>
