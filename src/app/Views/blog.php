@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog</title>
+    <title>ブログ</title>
 </head>
 <body>
 <header>
-    <h1>Blog</h1>
+    <h1>ブログ</h1>
 </header>
 <main>
     <nav>
         <a href="./">トップへ</a>
-        <a href="./blog/create">New</a>
+        <a href="./blog/create">新しい記事を作成</a>
     </nav>
     <section>
         <?php foreach ($response as $key => $val) : ?>

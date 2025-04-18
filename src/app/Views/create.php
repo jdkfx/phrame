@@ -3,25 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Post</title>
+    <title>新しい記事を作成</title>
 </head>
 <body>
 <header>
-    <h1>New Post</h1>
+    <h1>新しい記事を作成</h1>
 </header>
 <main>
     <form action="./create/confirm" method="post">
         <ul>
             <li>
-                <label for="title">Title:</label>
+                <label for="title">タイトル:</label>
                 <input type="text" id="title" name="title">
             </li>
             <li>
-                <label for="messages">Message:</label>
+                <label for="messages">テキスト:</label>
                 <textarea name="messages" id="messages" cols="30" rows="10"></textarea>
             </li>
             <li>
-                <button type="submit">Confirm</button>
+                <button type="submit">確認</button>
             </li>
         </ul>
     </form>
